@@ -117,6 +117,14 @@ class clientThread extends Thread {
 			try {
 				String question = dis.readLine();
 				//filter profanity
+				if (question.contains("sweet"))
+				{
+					StringBuilder filteredQuestion = new StringBuilder(question);
+					filteredQuestion.replace(6, 11, "*****");
+					String filteredQuestionString = filteredQuestion.toString();
+					System.out.println(filteredQuestionString);
+					continue;
+				}
 				System.out.println(question);
 				QuestionServer.questions.add(question);
 				
