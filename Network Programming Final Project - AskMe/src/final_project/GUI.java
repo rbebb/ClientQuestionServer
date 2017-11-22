@@ -23,16 +23,21 @@ public class GUI extends Application {
 		int paneWidth = 1000;
 		int paneHeight = 700;
 		
-		new QuestionServer();
+		QuestionServer.main(null);
 		
-		if ()
-		ToGUI chatMessage = new ToGUI();
-		chatMessage.addText(100, 100, QuestionServer.questions.toString(), "Verdana", 20, Color.RED, startPane);
+		int numQuestions = 0;
 		
 		Scene startScene = new Scene(startPane, paneWidth, paneHeight);
 		primaryStage.setScene(startScene);
 		primaryStage.setResizable(false);
 		primaryStage.show();
+		
+		while (QuestionServer.questions.size() > numQuestions)
+		{
+			numQuestions++;
+			ToGUI chatMessage = new ToGUI();
+			chatMessage.addText(100, 100, QuestionServer.questions.get(QuestionServer.questions.size()-1), "Verdana", 20, Color.RED, startPane);
+		}
 	}
 
 }

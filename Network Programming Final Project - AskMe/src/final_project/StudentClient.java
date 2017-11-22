@@ -26,7 +26,7 @@ public class StudentClient implements Runnable {
 		//port number
 		int portNum = 45678;
 		//ip of server
-		String ip = "10.200.208.203";
+		String ip = "192.168.0.75";
 		
 		BufferedReader question = null;
 		
@@ -56,43 +56,29 @@ public class StudentClient implements Runnable {
 		}
 	}
 
-
-
-
-
 /*
  * Create a thread to read from the server. (non-Javadoc)
  * 
  * @see java.lang.Runnable#run()
  */
-public void run() {
+	public void run() {
   /*
    * Keep on reading from the socket till we receive "Bye" from the
    * server. Once we received that then we want to break.
    */
-  String responseLine;
-  try {
-    while ((responseLine = dis.readLine()) != null) {
-      System.out.println(responseLine);
-      if (responseLine.indexOf("*** Bye") != -1)
-        break;
-    }
-    yes = false;
-  } catch (IOException e) {
-    System.err.println("IOException:  " + e);
-  }
+		String responseLine;
+		try {
+			while ((responseLine = dis.readLine()) != null) {
+				System.out.println(responseLine);
+				if (responseLine.indexOf("*** Bye") != -1)
+					break;
+			}
+			yes = false;
+		} catch (IOException e) {
+			System.err.println("IOException:  " + e);
+		}
+	}
 }
-}
-
-
-
-
-
-
-
-
-
-
 
 
 
