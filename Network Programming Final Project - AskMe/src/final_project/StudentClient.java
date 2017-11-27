@@ -26,7 +26,7 @@ public class StudentClient implements Runnable {
 		//port number
 		int portNum = 45678;
 		//ip of server
-		String ip = "192.168.0.75";
+		String ip = "10.200.27.248";
 		
 		BufferedReader question = null;
 		
