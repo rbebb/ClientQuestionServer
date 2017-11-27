@@ -17,7 +17,7 @@ public class QuestionServer {
 	private static ServerSocket sSocket = null;
 	//client socket
 	private static Socket cSocket = null;
-	//limit to num students that can connect simultaniously
+	//limit to num students that can connect simultaneously
 	private static final int maxNumStudents = 25;
 	private static final clientThread[] threads = new clientThread[maxNumStudents];
 	//data structure for stored questions
@@ -56,5 +56,4 @@ public class QuestionServer {
 		}
 	}
 }
-
 

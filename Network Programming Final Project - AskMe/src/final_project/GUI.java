@@ -19,7 +19,7 @@ public class GUI extends Application {
 		primaryStage.setTitle("AskMe");
 		
 		Pane startPane = new Pane();
-//		Size for program window (startPane and gamePane)
+//		Size for program window (startPane)
 		int paneWidth = 1000;
 		int paneHeight = 700;
 		
