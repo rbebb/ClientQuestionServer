@@ -158,7 +158,7 @@ public class GUI extends Application {
 	public static void addQuestionToTeacherGUI(String newQuestion) {
 		ToGUI chatMessage = new ToGUI();
 		textY = textY+18;
-		Platform.runLater(() -> chatMessage.addText(textX, textY, newQuestion, "Verdana", 10, Color.BLACK, teacherPane));
+		Platform.runLater(() -> chatMessage.addText(textX, textY, newQuestion, "Lato", 10, Color.BLACK, teacherPane));
 	}
 	
 	public static void addQuestionToStudentGUI(String newQuestion) {

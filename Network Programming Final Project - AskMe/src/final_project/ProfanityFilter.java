@@ -19,7 +19,6 @@ public class ProfanityFilter {
 				) {
 		
 			HashSet<String> swears = new HashSet<String>(10);
-			//HashSet<String> bangWords = new HashSet< >();
 
 			while (fin.hasNext()) {
 			
@@ -45,21 +44,17 @@ public class ProfanityFilter {
 	}
 	
 	
-	
-	
 	public static String filterQuestion(String s, HashSet<String> hs) {
-		
-		//ArrayList<String> words = new ArrayList<String>();
 		
 		String[] words = s.split("\\W+");
 		
-		for (String ss : words) {
-			if (hs.contains(ss)) {
+		for (int i = 0; i < words.length; i++) {
+			if (hs.contains(words[i])) {
 				String ph = "";
-				for (int i = 0; i < ss.length(); i++) {
+				for (int i2 = 0; i2 < words[i].length(); i2++) {
 					ph = ph + "*";
 				}
-				ss = ph;
+				words[i] = ph;
 			}
 		}
 		
