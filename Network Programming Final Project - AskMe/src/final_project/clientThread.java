@@ -60,6 +60,7 @@ class clientThread extends Thread {
 		}
 		
 		
+		
 		while (true) {
 			
 			try {

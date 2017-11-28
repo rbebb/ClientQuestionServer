@@ -167,3 +167,4 @@ public class GUI extends Application {
 		Platform.runLater(() -> chatMessage.addText(textX, textY, newQuestion, "Verdana", 20, Color.BLACK, studentPane));
 	}
 }
+
