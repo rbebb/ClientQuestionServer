@@ -19,8 +19,8 @@ public class GUI extends Application {
 //	private static Pane startPane, teacherPane, studentPane;
 	private static Pane startPane, teacherPane, studentPane;
 	private static ScrollPane teacherScrollPane, studentScrollPane;
-	private static int textX = 100;
-	private static int textY = 180;
+	private static int textX = 290;
+	private static int textY = 25;
 	static boolean submitBtnClick = false;
 
 	public static void main(String[] args) {
@@ -59,14 +59,14 @@ public class GUI extends Application {
 		teacherScrollPane = new ScrollPane();
 		teacherScrollPane.setPrefSize(713, 650);
 		teacherScrollPane.setLayoutX(275);
-		teacherScrollPane.setLayoutY(25);
+		teacherScrollPane.setLayoutY(30);
 		teacherScrollPane.setHbarPolicy(ScrollBarPolicy.NEVER);
 		teacherPane.getChildren().add(teacherScrollPane);
 		
 		studentScrollPane = new ScrollPane();
 		studentScrollPane.setPrefSize(713, 495);
 		studentScrollPane.setLayoutX(275);
-		studentScrollPane.setLayoutY(25);
+		studentScrollPane.setLayoutY(30);
 		studentScrollPane.setHbarPolicy(ScrollBarPolicy.NEVER);
 		studentPane.getChildren().add(studentScrollPane);
 		
@@ -95,7 +95,7 @@ public class GUI extends Application {
 		
 		ToGUI exitTeacherBtn = new ToGUI();
 		String exitTeacherBtnLabel = "Exit";
-		exitTeacherBtn.addButton(exitTeacherBtnLabel, 140, 55, 20, 20, teacherPane);
+		exitTeacherBtn.addButton(exitTeacherBtnLabel, 200, 50, 30, 30, teacherPane);
 //		Sets the color of the text
 		(exitTeacherBtn.btn).setTextFill(Color.RED);
 		
@@ -111,7 +111,7 @@ public class GUI extends Application {
 		
 		ToGUI exitStudentBtn = new ToGUI();
 		String exitStudentBtnLabel = "Exit";
-		exitStudentBtn.addButton(exitStudentBtnLabel, 140, 55, 20, 20, studentPane);
+		exitStudentBtn.addButton(exitStudentBtnLabel, 200, 50, 30, 30, studentPane);
 		(exitStudentBtn.btn).setTextFill(Color.RED);
 		
 //		Action when student clicks the exit button
@@ -157,13 +157,13 @@ public class GUI extends Application {
 
 	public static void addQuestionToTeacherGUI(String newQuestion) {
 		ToGUI chatMessage = new ToGUI();
-		textY = textY+80;
-		Platform.runLater(() -> chatMessage.addText(textX, textY, newQuestion, "Verdana", 20, Color.BLACK, teacherPane));
+		textY = textY+18;
+		Platform.runLater(() -> chatMessage.addText(textX, textY, newQuestion, "Verdana", 10, Color.BLACK, teacherPane));
 	}
 	
 	public static void addQuestionToStudentGUI(String newQuestion) {
 		ToGUI chatMessage = new ToGUI();
-		textY = textY+80;
+		textY = textY+10;
 		Platform.runLater(() -> chatMessage.addText(textX, textY, newQuestion, "Verdana", 20, Color.BLACK, studentPane));
 	}
 }
