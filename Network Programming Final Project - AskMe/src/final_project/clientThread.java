@@ -4,6 +4,7 @@ import java.io.DataInputStream;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.net.Socket;
+import java.util.HashSet;
 
 /*
  * The chat client thread. This client thread opens the input and the output
@@ -22,7 +23,12 @@ class clientThread extends Thread {
 	private Socket cSocket = null;
 	private int maxNumStudents = 25;
 	private final clientThread[] threads;
+
+	HashSet<String> filter = ProfanityFilter.makeFilter();
+	
+
 	static String newQuestion = null;
+
 	
 	public clientThread(Socket cSocket, clientThread[] threads) {
 		this.cSocket = cSocket;
@@ -64,6 +70,14 @@ class clientThread extends Thread {
 		while (true) {
 			
 			try {
+
+				String question = dis.readLine();
+				question = ProfanityFilter.filterQuestion(question,  filter);
+				System.out.println(question);
+				QuestionServer.questions.add(question);
+				System.out.println(QuestionServer.questions.get(QuestionServer.questions.size()-1));
+				GUI.addQuestionToTeacherGUI(question);
+
 				String newQuestion = dis.readLine();
 				//filter profanity
 				if (newQuestion.contains("sweet"))
@@ -76,13 +90,13 @@ class clientThread extends Thread {
 				System.out.println(QuestionServer.questions.get(QuestionServer.questions.size()-1));
 				GUI.addQuestionToTeacherGUI(newQuestion);
 //				GUI.addQuestionToStudentGUI(newQuestion);
+
 				
 			} catch (IOException e) {
 				break;
 			}
 			
 		}
-		
 		
 		try {
 			dis.close();

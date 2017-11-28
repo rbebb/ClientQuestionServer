@@ -95,7 +95,7 @@ public class GUI extends Application {
 		
 		ToGUI exitTeacherBtn = new ToGUI();
 		String exitTeacherBtnLabel = "Exit";
-		exitTeacherBtn.addButton(exitTeacherBtnLabel, 200, 50, 30, 30, teacherPane);
+		exitTeacherBtn.addButton(exitTeacherBtnLabel, 200, 75, 30, 30, teacherPane);
 //		Sets the color of the text
 		(exitTeacherBtn.btn).setTextFill(Color.RED);
 		
@@ -111,7 +111,7 @@ public class GUI extends Application {
 		
 		ToGUI exitStudentBtn = new ToGUI();
 		String exitStudentBtnLabel = "Exit";
-		exitStudentBtn.addButton(exitStudentBtnLabel, 200, 50, 30, 30, studentPane);
+		exitStudentBtn.addButton(exitStudentBtnLabel, 200, 75, 30, 30, studentPane);
 		(exitStudentBtn.btn).setTextFill(Color.RED);
 		
 //		Action when student clicks the exit button
@@ -163,7 +163,7 @@ public class GUI extends Application {
 	
 	public static void addQuestionToStudentGUI(String newQuestion) {
 		ToGUI chatMessage = new ToGUI();
-		textY = textY+10;
+		textY = textY+18;
 		Platform.runLater(() -> chatMessage.addText(textX, textY, newQuestion, "Verdana", 20, Color.BLACK, studentPane));
 	}
 }
