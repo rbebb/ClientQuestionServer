@@ -1,10 +1,13 @@
 package final_project;
 
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.ScrollPane.ScrollBarPolicy;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
@@ -12,8 +15,13 @@ import javafx.stage.Stage;
 public class GUI extends Application {
 	
 	private static int numQuestions = 0;
-	
-	static String questionString = "";
+	static String questionString = null;
+//	private static Pane startPane, teacherPane, studentPane;
+	private static Pane startPane, teacherPane, studentPane;
+	private static ScrollPane teacherScrollPane, studentScrollPane;
+	private static int textX = 100;
+	private static int textY = 180;
+	static boolean submitBtnClick = false;
 
 	public static void main(String[] args) {
 		launch(args);
@@ -25,7 +33,7 @@ public class GUI extends Application {
 //		Program Title
 		primaryStage.setTitle("AskMe");
 		
-		Pane startPane = new Pane();
+		startPane = new Pane();
 //		Size for program window (startPane)
 		int paneWidth = 1000;
 		int paneHeight = 700;
@@ -42,12 +50,26 @@ public class GUI extends Application {
 		studentBtn.addButton("Student", 250, 150, 615, 300, startPane);
 		
 		
-		Pane teacherPane = new Pane();
+		teacherPane = new Pane();
 		Scene teacherScene = new Scene(teacherPane, paneWidth, paneHeight);
 		
-		
-		Pane studentPane = new Pane();
+		studentPane = new Pane();
 		Scene studentScene = new Scene(studentPane, paneWidth, paneHeight);
+		
+		teacherScrollPane = new ScrollPane();
+		teacherScrollPane.setPrefSize(713, 650);
+		teacherScrollPane.setLayoutX(275);
+		teacherScrollPane.setLayoutY(25);
+		teacherScrollPane.setHbarPolicy(ScrollBarPolicy.NEVER);
+		teacherPane.getChildren().add(teacherScrollPane);
+		
+		studentScrollPane = new ScrollPane();
+		studentScrollPane.setPrefSize(713, 495);
+		studentScrollPane.setLayoutX(275);
+		studentScrollPane.setLayoutY(25);
+		studentScrollPane.setHbarPolicy(ScrollBarPolicy.NEVER);
+		studentPane.getChildren().add(studentScrollPane);
+		
 		
 		TextArea enterQuestion = new TextArea();
 		enterQuestion.setLayoutX(275);
@@ -64,7 +86,8 @@ public class GUI extends Application {
 			public void handle (ActionEvent e)
 			{
 				questionString = enterQuestion.getText();
-				QuestionServer.questions.add(questionString);
+//				QuestionServer.questions.add(questionString);
+				submitBtnClick = true;
 				enterQuestion.clear();
 			}
 		});
@@ -113,13 +136,6 @@ public class GUI extends Application {
 				primaryStage.setScene(teacherScene);
 				primaryStage.setResizable(false);
 				primaryStage.show();
-				
-				while (QuestionServer.questions.size() > numQuestions)
-				{
-					numQuestions++;
-					ToGUI chatMessage = new ToGUI();
-					chatMessage.addText(300, 300, QuestionServer.questions.get(QuestionServer.questions.size()-1), "Verdana", 20, Color.BLACK, teacherPane);
-				}
 			}
 		});
 		
@@ -139,4 +155,15 @@ public class GUI extends Application {
 		
 	}
 
+	public static void addQuestionToTeacherGUI(String newQuestion) {
+		ToGUI chatMessage = new ToGUI();
+		textY = textY+80;
+		Platform.runLater(() -> chatMessage.addText(textX, textY, newQuestion, "Verdana", 20, Color.BLACK, teacherPane));
+	}
+	
+	public static void addQuestionToStudentGUI(String newQuestion) {
+		ToGUI chatMessage = new ToGUI();
+		textY = textY+80;
+		Platform.runLater(() -> chatMessage.addText(textX, textY, newQuestion, "Verdana", 20, Color.BLACK, studentPane));
+	}
 }

@@ -22,6 +22,7 @@ class clientThread extends Thread {
 	private Socket cSocket = null;
 	private int maxNumStudents = 25;
 	private final clientThread[] threads;
+	static String newQuestion = null;
 	
 	public clientThread(Socket cSocket, clientThread[] threads) {
 		this.cSocket = cSocket;
@@ -62,18 +63,18 @@ class clientThread extends Thread {
 		while (true) {
 			
 			try {
-				String question = dis.readLine();
+				String newQuestion = dis.readLine();
 				//filter profanity
-				if (question.contains("sweet"))
+				if (newQuestion.contains("sweet"))
 				{
-					StringBuilder filteredQuestion = new StringBuilder(question);
+					StringBuilder filteredQuestion = new StringBuilder(newQuestion);
 					filteredQuestion.replace(6, 11, "*****");
-					String filteredQuestionString = filteredQuestion.toString();
-					System.out.println(filteredQuestionString);
-					continue;
+					newQuestion = filteredQuestion.toString();
 				}
-				System.out.println(question);
-				QuestionServer.questions.add(question);
+				QuestionServer.questions.add(newQuestion);
+				System.out.println(QuestionServer.questions.get(QuestionServer.questions.size()-1));
+				GUI.addQuestionToTeacherGUI(newQuestion);
+//				GUI.addQuestionToStudentGUI(newQuestion);
 				
 			} catch (IOException e) {
 				break;
