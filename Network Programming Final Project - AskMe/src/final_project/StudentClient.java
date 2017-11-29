@@ -45,11 +45,11 @@ public class StudentClient implements Runnable {
 			
 			new Thread(new StudentClient()).start();
 			while (yes) {
-				while (GUI.submitBtnClick) {
-					ps.println(GUI.questionString);
-					GUI.submitBtnClick = false; //take gui string and put into print stream
-				}
-//				ps.println(question.readLine().trim());
+//				while (GUI.submitBtnClick) {
+//					ps.println(GUI.questionString);
+//					GUI.submitBtnClick = false; //take gui string and put into print stream
+//				}
+				ps.println(question.readLine().trim());
 			}
 			
 			ps.close();

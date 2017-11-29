@@ -75,8 +75,15 @@ class clientThread extends Thread {
 				question = ProfanityFilter.filterQuestion(question, filter);
 				System.out.println(question);
 				QuestionServer.questions.add(question);
-				GUI.addQuestionToTeacherGUI(question);
-
+				
+				if (GUI.isTeacher)
+				{
+					GUI.addQuestionToTeacherGUI(question);
+				}
+				else if (GUI.isStudent)
+				{
+					GUI.addQuestionToStudentGUI(question);
+				}
 //				String newQuestion = dis.readLine();
 //				//filter profanity
 //				if (newQuestion.contains("sweet"))
