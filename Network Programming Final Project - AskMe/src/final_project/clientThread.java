@@ -75,7 +75,7 @@ class clientThread extends Thread {
 
 				String question = dis.readLine();
 				question = ProfanityFilter.filterQuestion(question, filter);
-				System.out.println(question);
+//				System.out.println(question);
 				for (int i = 0; i < maxNumStudents; i++){
 					if (threads[i] != null) 
 					{
@@ -88,22 +88,6 @@ class clientThread extends Thread {
 				{
 					GUI.addQuestionToTeacherGUI(question);
 				}
-//				else if (GUI.isStudent)
-//				{
-//					GUI.addQuestionToStudentGUI(question);
-//				}
-//				String newQuestion = dis.readLine();
-//				//filter profanity
-//				if (newQuestion.contains("sweet"))
-//				{
-//					StringBuilder filteredQuestion = new StringBuilder(newQuestion);
-//					filteredQuestion.replace(6, 11, "*****");
-//					newQuestion = filteredQuestion.toString();
-//				}
-//				QuestionServer.questions.add(newQuestion);
-//				System.out.println(QuestionServer.questions.get(QuestionServer.questions.size()-1));
-//				GUI.addQuestionToTeacherGUI(newQuestion);
-//				GUI.addQuestionToStudentGUI(newQuestion);
 
 				
 			} catch (IOException e) {

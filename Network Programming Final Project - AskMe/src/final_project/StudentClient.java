@@ -46,13 +46,6 @@ public class StudentClient implements Runnable {
 			
 			new Thread(new StudentClient()).start();
 			while (yes) {
-//				System.out.println(GUI.submitBtnClick);
-//				if (GUI.submitBtnClick) {
-//					System.out.print("hello");
-//					ps.println(String.getBytes(Charset.forName(GUI.questionString.getBytes())));
-//					GUI.addQuestionToStudentGUI(newQuestion);
-//					GUI.submitBtnClick = false; //take gui string and put into print stream
-//				}
 //				ps.println(question.readLine().trim());
 			}
 			
