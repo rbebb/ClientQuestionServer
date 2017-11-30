@@ -33,7 +33,7 @@ public class GUI extends Application {
 	public void start(Stage primaryStage) throws Exception {
 		
 //		Program Title
-		primaryStage.setTitle("AskMe");
+		primaryStage.setTitle("AskMe!");
 		
 		startPane = new Pane();
 //		Size for program window (startPane)
@@ -50,7 +50,7 @@ public class GUI extends Application {
 		primaryStage.show();
 		
 		ToGUI titleAskMe = new ToGUI();
-		titleAskMe.addText(172, 250, "AskMe!", "Chalkboard", 200, Color.WHITE, startPane);
+		titleAskMe.addText(180, 250, "AskMe!", "Chalkboard", 200, Color.WHITE, startPane);
 		
 		ToGUI teacherBtn = new ToGUI();
 		teacherBtn.addButton("Teacher", 300, 150, 130, 370, startPane);
