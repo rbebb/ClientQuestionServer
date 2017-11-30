@@ -29,7 +29,7 @@ public class GUI extends Application {
 		launch(args);
 
 	}
-	
+	 
 	public void start(Stage primaryStage) throws Exception {
 		
 //		Program Title
@@ -50,14 +50,14 @@ public class GUI extends Application {
 		primaryStage.show();
 		
 		ToGUI titleAskMe = new ToGUI();
-		titleAskMe.addText(240, 215, "AskMe", "Chalkboard", 175, Color.WHITE, startPane);
+		titleAskMe.addText(172, 250, "AskMe!", "Chalkboard", 200, Color.WHITE, startPane);
 		
 		ToGUI teacherBtn = new ToGUI();
-		teacherBtn.addButton("Teacher", 250, 150, 160, 350, startPane);
-		teacherBtn.btn.setStyle("-fx-font-size: 16;");
+		teacherBtn.addButton("Teacher", 300, 150, 130, 370, startPane);
+		teacherBtn.btn.setStyle("-fx-font-size: 40;");
 		ToGUI studentBtn = new ToGUI();
-		studentBtn.addButton("Student", 250, 150, 610, 350, startPane);
-		studentBtn.btn.setStyle("-fx-font-size: 16;");
+		studentBtn.addButton("Student", 300, 150, 570, 370, startPane);
+		studentBtn.btn.setStyle("-fx-font-size: 40;");
 		
 		
 		teacherPane = new Pane();
@@ -69,14 +69,14 @@ public class GUI extends Application {
 		Scene studentScene = new Scene(studentPane, paneWidth, paneHeight);
 		
 		teacherScrollPane = new ScrollPane();
-		teacherScrollPane.setPrefSize(713, 650);
+		teacherScrollPane.setPrefSize(700, 640);
 		teacherScrollPane.setLayoutX(275);
 		teacherScrollPane.setLayoutY(30);
 		teacherScrollPane.setHbarPolicy(ScrollBarPolicy.NEVER);
 		teacherPane.getChildren().add(teacherScrollPane);
 		
 		studentScrollPane = new ScrollPane();
-		studentScrollPane.setPrefSize(713, 495);
+		studentScrollPane.setPrefSize(700, 515);
 		studentScrollPane.setLayoutX(275);
 		studentScrollPane.setLayoutY(30);
 		studentScrollPane.setHbarPolicy(ScrollBarPolicy.NEVER);
@@ -85,12 +85,12 @@ public class GUI extends Application {
 		
 		enterQuestion = new TextArea();
 		enterQuestion.setLayoutX(275);
-		enterQuestion.setLayoutY(550);
-		enterQuestion.setPrefSize(600, 100);
+		enterQuestion.setLayoutY(570);
+		enterQuestion.setPrefSize(580, 100);
 		studentPane.getChildren().add(enterQuestion);
 		
 		ToGUI submitBtn = new ToGUI();
-		submitBtn.addButton("Submit", 100, 100, 888, 550, studentPane);
+		submitBtn.addButton("Submit", 100, 100, 875, 570, studentPane);
 		submitBtn.btn.setStyle("-fx-font-size: 16;");
 		
 		(submitBtn.btn).setOnAction(new EventHandler<ActionEvent>()
