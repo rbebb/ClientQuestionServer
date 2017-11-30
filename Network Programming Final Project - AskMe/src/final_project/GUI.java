@@ -16,7 +16,6 @@ public class GUI extends Application {
 	
 	private static int numQuestions = 0;
 	static String questionString = null;
-//	private static Pane startPane, teacherPane, studentPane;
 	private static Pane startPane, teacherPane, studentPane;
 	private static ScrollPane teacherScrollPane, studentScrollPane;
 	private static int textX = 290;
@@ -24,6 +23,7 @@ public class GUI extends Application {
 	static boolean submitBtnClick = false;
 	static boolean isTeacher = false;
 	static boolean isStudent = false;
+	static TextArea enterQuestion;
 
 	public static void main(String[] args) {
 		launch(args);
@@ -83,7 +83,7 @@ public class GUI extends Application {
 		studentPane.getChildren().add(studentScrollPane);
 		
 		
-		TextArea enterQuestion = new TextArea();
+		enterQuestion = new TextArea();
 		enterQuestion.setLayoutX(275);
 		enterQuestion.setLayoutY(550);
 		enterQuestion.setPrefSize(600, 100);
@@ -99,7 +99,6 @@ public class GUI extends Application {
 			public void handle (ActionEvent e)
 			{
 				questionString = enterQuestion.getText();
-//				QuestionServer.questions.add(questionString);
 				submitBtnClick = true;
 				enterQuestion.clear();
 			}

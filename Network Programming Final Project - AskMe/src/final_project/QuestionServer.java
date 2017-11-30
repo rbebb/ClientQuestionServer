@@ -1,6 +1,6 @@
 package final_project;
 
-//SAUCE @ http://makemobiapps.blogspot.com/p/multiple-client-server-chat-programming.html
+//SOURCE @ http://makemobiapps.blogspot.com/p/multiple-client-server-chat-programming.html
 //used as a framework basis for this server
 
 import java.io.PrintStream;

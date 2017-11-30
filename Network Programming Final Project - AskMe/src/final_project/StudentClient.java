@@ -1,6 +1,6 @@
 package final_project;
 
-//SAUCE @ http://makemobiapps.blogspot.com/p/multiple-client-server-chat-programming.html
+//SOURCE @ http://makemobiapps.blogspot.com/p/multiple-client-server-chat-programming.html
 //used as a basis for student client
 
 import java.io.DataInputStream;
@@ -45,11 +45,13 @@ public class StudentClient implements Runnable {
 			
 			new Thread(new StudentClient()).start();
 			while (yes) {
-//				while (GUI.submitBtnClick) {
-//					ps.println(GUI.questionString);
+				System.out.println(GUI.submitBtnClick);
+				if (GUI.submitBtnClick) {
+					System.out.print("hello");
+					ps.println(GUI.questionString);
 //					GUI.submitBtnClick = false; //take gui string and put into print stream
-//				}
-				ps.println(question.readLine().trim());
+				}
+//				ps.println(question.readLine().trim());
 			}
 			
 			ps.close();
@@ -73,7 +75,11 @@ public class StudentClient implements Runnable {
 		String responseLine;
 		try {
 			while ((responseLine = dis.readLine()) != null) {
-				System.out.println(responseLine);
+//				System.out.println(responseLine);
+				if (GUI.isStudent)
+				{
+					GUI.addQuestionToStudentGUI(responseLine);
+				}
 				if (responseLine.indexOf("*** Bye") != -1)
 					break;
 			}

@@ -15,11 +15,13 @@ import java.util.HashSet;
  * routes the private message to the particular client. When a client leaves the
  * chat room this thread informs also all the clients about that and terminates.
  */
-//SAUCE @ http://makemobiapps.blogspot.com/p/multiple-client-server-chat-programming.html
+//SOURCE @ http://makemobiapps.blogspot.com/p/multiple-client-server-chat-programming.html
 //used as a framework basis for this server
 
 class clientThread extends Thread {
 	private String student = null;
+	private DataInputStream dis = null;
+	private PrintStream ps = null;
 	private Socket cSocket = null;
 	private int maxNumStudents = 25;
 	private final clientThread[] threads;
@@ -40,14 +42,14 @@ class clientThread extends Thread {
 		int maxNumStudents = this.maxNumStudents;
 		clientThread[] threads = this.threads;
 		
-		DataInputStream dis = null;
+//		DataInputStream dis = null;
 		try {
 			dis = new DataInputStream(cSocket.getInputStream());
 		} catch (IOException e) {
 			
 		}
 		
-		PrintStream ps = null;
+//		PrintStream ps = null;
 		try {
 			ps = new PrintStream(cSocket.getOutputStream());
 		} catch (IOException e) {
@@ -74,16 +76,22 @@ class clientThread extends Thread {
 				String question = dis.readLine();
 				question = ProfanityFilter.filterQuestion(question, filter);
 				System.out.println(question);
+//				for (int i = 0; i < maxNumStudents; i++){
+//					if (threads[i] != null) 
+//					{
+////			        		threads[i].ps.println(question);
+//					}
+//			    }
 				QuestionServer.questions.add(question);
 				
 				if (GUI.isTeacher)
 				{
 					GUI.addQuestionToTeacherGUI(question);
 				}
-				else if (GUI.isStudent)
-				{
-					GUI.addQuestionToStudentGUI(question);
-				}
+//				else if (GUI.isStudent)
+//				{
+//					GUI.addQuestionToStudentGUI(question);
+//				}
 //				String newQuestion = dis.readLine();
 //				//filter profanity
 //				if (newQuestion.contains("sweet"))
