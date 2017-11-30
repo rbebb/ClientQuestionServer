@@ -100,6 +100,7 @@ public class GUI extends Application {
 			{
 				questionString = enterQuestion.getText();
 				submitBtnClick = true;
+				StudentClient.sendQuestion(questionString);
 				enterQuestion.clear();
 			}
 		});

@@ -10,6 +10,7 @@ import java.io.InputStreamReader;
 import java.io.IOException;
 import java.net.Socket;
 import java.net.UnknownHostException;
+import java.nio.charset.Charset;
 
 public class StudentClient implements Runnable {
 	
@@ -45,12 +46,13 @@ public class StudentClient implements Runnable {
 			
 			new Thread(new StudentClient()).start();
 			while (yes) {
-				System.out.println(GUI.submitBtnClick);
-				if (GUI.submitBtnClick) {
-					System.out.print("hello");
-					ps.println(GUI.questionString);
+//				System.out.println(GUI.submitBtnClick);
+//				if (GUI.submitBtnClick) {
+//					System.out.print("hello");
+//					ps.println(String.getBytes(Charset.forName(GUI.questionString.getBytes())));
+//					GUI.addQuestionToStudentGUI(newQuestion);
 //					GUI.submitBtnClick = false; //take gui string and put into print stream
-				}
+//				}
 //				ps.println(question.readLine().trim());
 			}
 			
@@ -62,6 +64,10 @@ public class StudentClient implements Runnable {
 		}
 	}
 
+	public static void sendQuestion(String s) {
+		ps.println(s);
+	}
+	
 /*
  * Create a thread to read from the server. (non-Javadoc)
  * 

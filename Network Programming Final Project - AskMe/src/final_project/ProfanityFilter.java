@@ -59,6 +59,7 @@ public class ProfanityFilter {
 		}
 		
 		s = String.join(" ", words);
+		s = s + "?";
 		
 		return s;
 	}
