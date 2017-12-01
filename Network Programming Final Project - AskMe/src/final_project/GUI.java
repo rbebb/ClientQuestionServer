@@ -61,11 +61,12 @@ public class GUI extends Application {
 		teacherBtn.addButton("Teacher", 280, 130, 150, 450, startPane); // a*b width button size, c*d height of location
 		teacherBtn.btn.setStyle("-fx-font-family: Lato;"
 				+ "-fx-font-size: 40;");
+		(teacherBtn.btn).setTextFill(Color.CORNFLOWERBLUE);
 		ToGUI studentBtn = new ToGUI();
 		studentBtn.addButton("Student", 280, 130, 570, 450, startPane);
 		studentBtn.btn.setStyle("-fx-font-family: Lato;"
 				+ "-fx-font-size: 40;");
-		
+		(studentBtn.btn).setTextFill(Color.CORNFLOWERBLUE);
 		
 		
 		teacherPane = new Pane();
@@ -101,7 +102,8 @@ public class GUI extends Application {
 		ToGUI submitBtn = new ToGUI();
 		submitBtn.addButton("Submit", 100, 100, 875, 570, studentPane);
 		submitBtn.btn.setStyle("-fx-font-family: Lato;"
-				+ "-fx-font-size: 16;");
+				+ "-fx-font-size: 21;");
+		(submitBtn.btn).setTextFill(Color.CORNFLOWERBLUE);
 		
 		(submitBtn.btn).setOnAction(new EventHandler<ActionEvent>()
 		{
@@ -119,9 +121,9 @@ public class GUI extends Application {
 		ToGUI exitTeacherBtn = new ToGUI();
 		String exitTeacherBtnLabel = "Exit";
 		exitTeacherBtn.addButton(exitTeacherBtnLabel, 200, 75, 30, 30, teacherPane);
-		(exitTeacherBtn.btn).setTextFill(Color.RED);
+		(exitTeacherBtn.btn).setTextFill(Color.CORNFLOWERBLUE);
 		exitTeacherBtn.btn.setStyle("-fx-font-family: Lato;"
-				+ "-fx-font-size: 16;");
+				+ "-fx-font-size: 28;");
 		
 //		Action when teacher clicks the exit button
 		(exitTeacherBtn.btn).setOnAction(new EventHandler<ActionEvent>()
@@ -136,9 +138,9 @@ public class GUI extends Application {
 		ToGUI exitStudentBtn = new ToGUI();
 		String exitStudentBtnLabel = "Exit";
 		exitStudentBtn.addButton(exitStudentBtnLabel, 200, 75, 30, 30, studentPane);
-		(exitStudentBtn.btn).setTextFill(Color.RED);
+		(exitStudentBtn.btn).setTextFill(Color.CORNFLOWERBLUE);
 		exitStudentBtn.btn.setStyle("-fx-font-family: Lato;"
-				+ "-fx-font-size: 16;");
+				+ "-fx-font-size: 28;");
 		
 //		Action when student clicks the exit button
 		(exitStudentBtn.btn).setOnAction(new EventHandler<ActionEvent>()
