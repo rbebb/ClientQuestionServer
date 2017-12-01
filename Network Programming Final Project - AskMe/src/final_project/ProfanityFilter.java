@@ -24,12 +24,6 @@ public class ProfanityFilter {
 			
 				String temp = fin.next();
 			
-				while (temp.charAt(temp.length() - 1) < 65 || temp.charAt(temp.length() - 1) > 122) {
-					temp = temp.substring(0, temp.length() - 1);
-				}
-			
-				temp = temp.toLowerCase();
-			
 				swears.add(temp);
 			
 				return swears;
