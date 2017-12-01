@@ -52,14 +52,14 @@ public class GUI extends Application {
 		primaryStage.show();
 		
 		ToGUI titleAskMe = new ToGUI();
-		titleAskMe.addText(180, 250, "AskMe!", "Chalkboard", 200, Color.WHITE, startPane);
+		titleAskMe.addText(105, 340, "AskMe!", "Impact", 270, Color.WHITE, startPane);
 		
 		ToGUI teacherBtn = new ToGUI();
-		teacherBtn.addButton("Teacher", 300, 150, 130, 370, startPane);
+		teacherBtn.addButton("Teacher", 280, 130, 150, 450, startPane); // a*b width button size, c*d height of location
 		teacherBtn.btn.setStyle("-fx-font-family: Lato;"
 				+ "-fx-font-size: 40;");
 		ToGUI studentBtn = new ToGUI();
-		studentBtn.addButton("Student", 300, 150, 570, 370, startPane);
+		studentBtn.addButton("Student", 280, 130, 570, 450, startPane);
 		studentBtn.btn.setStyle("-fx-font-family: Lato;"
 				+ "-fx-font-size: 40;");
 		
