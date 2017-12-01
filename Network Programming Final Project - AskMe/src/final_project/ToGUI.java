@@ -128,5 +128,15 @@ public class ToGUI {
 		pane.getChildren().add(text);
 	}
 
+	public void setForeground(Color color) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setTextFill(Color rgb) {
+		// TODO Auto-generated method stub
+		
+	}
+
 	
 }
