@@ -83,12 +83,12 @@ class clientThread extends Thread {
 							threads[i].ps.println(question);
 						}
 					}
+					
+					if (GUI.isTeacher)
+					{
+						GUI.addQuestionToTeacherGUI(question);
+					}
 			    }
-				
-				if (GUI.isTeacher && !QuestionServer.questions.contains(question.toLowerCase()))
-				{
-					GUI.addQuestionToTeacherGUI(question);
-				}
 				
 				QuestionServer.questions.add(question.toLowerCase());
 
