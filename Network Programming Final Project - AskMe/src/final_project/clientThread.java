@@ -42,7 +42,6 @@ class clientThread extends Thread {
 		int maxNumStudents = this.maxNumStudents;
 		clientThread[] threads = this.threads;
 		
-//		DataInputStream dis = null;
 		try {
 			dis = new DataInputStream(cSocket.getInputStream());
 		} catch (IOException e) {
@@ -61,6 +60,7 @@ class clientThread extends Thread {
 			ps.println("What's your name?");
 			try {
 				student = dis.readLine();
+				GUI.addStudentNameToTeacherGUI(student);
 				break;
 			} catch (IOException e) {
 				break;

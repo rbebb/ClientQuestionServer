@@ -10,16 +10,18 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.ScrollPane.ScrollBarPolicy;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 public class GUI extends Application {
 	
-	private static int numQuestions = 0;
 	static String questionString = null;
-	private static Pane startPane, teacherPane, studentPane;
+	static Pane startPane, teacherPane, studentPane;
 	private static ScrollPane teacherScrollPane, studentScrollPane;
 	private static int textX = 290;
 	private static int textY = 25;
+	private static int textXX = 30;
+	private static int textYY = 115;
 	static boolean submitBtnClick = false;
 	static boolean isTeacher = false;
 	static boolean isStudent = false;
@@ -54,10 +56,12 @@ public class GUI extends Application {
 		
 		ToGUI teacherBtn = new ToGUI();
 		teacherBtn.addButton("Teacher", 300, 150, 130, 370, startPane);
-		teacherBtn.btn.setStyle("-fx-font-size: 40;");
+		teacherBtn.btn.setStyle("-fx-font-family: Lato;"
+				+ "-fx-font-size: 40;");
 		ToGUI studentBtn = new ToGUI();
 		studentBtn.addButton("Student", 300, 150, 570, 370, startPane);
-		studentBtn.btn.setStyle("-fx-font-size: 40;");
+		studentBtn.btn.setStyle("-fx-font-family: Lato;"
+				+ "-fx-font-size: 40;");
 		
 		
 		teacherPane = new Pane();
@@ -87,11 +91,13 @@ public class GUI extends Application {
 		enterQuestion.setLayoutX(275);
 		enterQuestion.setLayoutY(570);
 		enterQuestion.setPrefSize(580, 100);
+		enterQuestion.setFont(Font.font("Lato"));
 		studentPane.getChildren().add(enterQuestion);
 		
 		ToGUI submitBtn = new ToGUI();
 		submitBtn.addButton("Submit", 100, 100, 875, 570, studentPane);
-		submitBtn.btn.setStyle("-fx-font-size: 16;");
+		submitBtn.btn.setStyle("-fx-font-family: Lato;"
+				+ "-fx-font-size: 16;");
 		
 		(submitBtn.btn).setOnAction(new EventHandler<ActionEvent>()
 		{
@@ -109,9 +115,9 @@ public class GUI extends Application {
 		ToGUI exitTeacherBtn = new ToGUI();
 		String exitTeacherBtnLabel = "Exit";
 		exitTeacherBtn.addButton(exitTeacherBtnLabel, 200, 75, 30, 30, teacherPane);
-//		Sets the color of the text
 		(exitTeacherBtn.btn).setTextFill(Color.RED);
-		exitTeacherBtn.btn.setStyle("-fx-font-size: 16;");
+		exitTeacherBtn.btn.setStyle("-fx-font-family: Lato;"
+				+ "-fx-font-size: 16;");
 		
 //		Action when teacher clicks the exit button
 		(exitTeacherBtn.btn).setOnAction(new EventHandler<ActionEvent>()
@@ -127,7 +133,8 @@ public class GUI extends Application {
 		String exitStudentBtnLabel = "Exit";
 		exitStudentBtn.addButton(exitStudentBtnLabel, 200, 75, 30, 30, studentPane);
 		(exitStudentBtn.btn).setTextFill(Color.RED);
-		exitStudentBtn.btn.setStyle("-fx-font-size: 16;");
+		exitStudentBtn.btn.setStyle("-fx-font-family: Lato;"
+				+ "-fx-font-size: 16;");
 		
 //		Action when student clicks the exit button
 		(exitStudentBtn.btn).setOnAction(new EventHandler<ActionEvent>()
@@ -177,13 +184,19 @@ public class GUI extends Application {
 	public static void addQuestionToTeacherGUI(String newQuestion) {
 		ToGUI chatMessage = new ToGUI();
 		textY = textY+18;
-		Platform.runLater(() -> chatMessage.addText(textX, textY, newQuestion, "Verdana", 10, Color.BLACK, teacherPane));
+		Platform.runLater(() -> chatMessage.addText(textX, textY, newQuestion, "Lato", 10, Color.BLACK, teacherPane));
 	}
 	
 	public static void addQuestionToStudentGUI(String newQuestion) {
 		ToGUI chatMessage = new ToGUI();
 		textY = textY+18;
-		Platform.runLater(() -> chatMessage.addText(textX, textY, newQuestion, "Verdana", 10, Color.BLACK, studentPane));
+		Platform.runLater(() -> chatMessage.addText(textX, textY, newQuestion, "Lato", 10, Color.BLACK, studentPane));
+	}
+	
+	public static void addStudentNameToTeacherGUI(String name) {
+		ToGUI nameText = new ToGUI();
+		textYY = textYY+45;
+		Platform.runLater(() -> nameText.addText(textXX, textYY, name, "Lato", 30, Color.WHITE, teacherPane));
 	}
 }
 
