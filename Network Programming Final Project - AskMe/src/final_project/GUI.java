@@ -31,12 +31,12 @@ public class GUI extends Application {
 		launch(args);
 
 	}
-	 
+	  
 	public void start(Stage primaryStage) throws Exception {
 		
 //		Program Title
 		primaryStage.setTitle("AskMe!");
-		
+		 
 		startPane = new Pane();
 //		Size for program window (startPane)
 		int paneWidth = 1000;
@@ -62,6 +62,7 @@ public class GUI extends Application {
 		studentBtn.addButton("Student", 300, 150, 570, 370, startPane);
 		studentBtn.btn.setStyle("-fx-font-family: Lato;"
 				+ "-fx-font-size: 40;");
+		
 		
 		
 		teacherPane = new Pane();
