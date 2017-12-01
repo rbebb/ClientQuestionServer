@@ -5,8 +5,6 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.control.ScrollPane.ScrollBarPolicy;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
@@ -16,8 +14,7 @@ import javafx.stage.Stage;
 public class GUI extends Application {
 	
 	static String questionString = null;
-	static Pane startPane, teacherPane, studentPane;
-	private static ScrollPane teacherScrollPane, studentScrollPane;
+	static Pane startPane, teacherPane, studentPane, teacherPaneQuestions, studentPaneQuestions;
 	private static int textX = 290;
 	private static int textY = 25;
 	private static int textXX = 30;
@@ -55,7 +52,6 @@ public class GUI extends Application {
 		titleAskMe.addText(105, 340, "Ask", "Impact", 270, Color.CORNFLOWERBLUE, startPane);
 		titleAskMe.addText(500, 340, "Me!", "Impact", 270, Color.GOLD, startPane);
 		
-
 		
 		ToGUI teacherBtn = new ToGUI();
 		teacherBtn.addButton("Teacher", 280, 130, 150, 450, startPane); // a*b width button size, c*d height of location
@@ -77,19 +73,19 @@ public class GUI extends Application {
 		studentPane.setStyle(backgroundString);
 		Scene studentScene = new Scene(studentPane, paneWidth, paneHeight);
 		
-		teacherScrollPane = new ScrollPane();
-		teacherScrollPane.setPrefSize(700, 640);
-		teacherScrollPane.setLayoutX(275);
-		teacherScrollPane.setLayoutY(30);
-		teacherScrollPane.setHbarPolicy(ScrollBarPolicy.NEVER);
-		teacherPane.getChildren().add(teacherScrollPane);
+		teacherPaneQuestions = new Pane();
+		teacherPaneQuestions.setPrefSize(700, 640);
+		teacherPaneQuestions.setLayoutX(275);
+		teacherPaneQuestions.setLayoutY(30);
+		teacherPaneQuestions.setStyle("-fx-background-color: whitesmoke;");
+		teacherPane.getChildren().add(teacherPaneQuestions);
 		
-		studentScrollPane = new ScrollPane();
-		studentScrollPane.setPrefSize(700, 515);
-		studentScrollPane.setLayoutX(275);
-		studentScrollPane.setLayoutY(30);
-		studentScrollPane.setHbarPolicy(ScrollBarPolicy.NEVER);
-		studentPane.getChildren().add(studentScrollPane);
+		studentPaneQuestions = new Pane();
+		studentPaneQuestions.setPrefSize(700, 515);
+		studentPaneQuestions.setLayoutX(275);
+		studentPaneQuestions.setLayoutY(30);
+		studentPaneQuestions.setStyle("-fx-background-color: whitesmoke;");
+		studentPane.getChildren().add(studentPaneQuestions);
 		
 		
 		enterQuestion = new TextArea();
@@ -97,6 +93,7 @@ public class GUI extends Application {
 		enterQuestion.setLayoutY(570);
 		enterQuestion.setPrefSize(580, 100);
 		enterQuestion.setFont(Font.font("Lato"));
+		enterQuestion.setStyle("-fx-control-inner-background: whitesmoke;");
 		studentPane.getChildren().add(enterQuestion);
 		
 		ToGUI submitBtn = new ToGUI();
@@ -186,13 +183,7 @@ public class GUI extends Application {
 		});
 		
 	}
-
-	private void setColor(Color color) {
-		// TODO Auto-generated method stub
-		
-//		color = new Color.rgb(107, 106, 104);
-//		titleAskMe.setTextFill(Color.rgb(107, 106, 104));
-	}
+	
 
 	public static void addQuestionToTeacherGUI(String newQuestion) {
 		ToGUI chatMessage = new ToGUI();
