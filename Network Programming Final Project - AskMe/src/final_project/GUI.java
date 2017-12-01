@@ -31,18 +31,18 @@ public class GUI extends Application {
 		launch(args);
 
 	}
-	 
+	  
 	public void start(Stage primaryStage) throws Exception {
 		
 //		Program Title
 		primaryStage.setTitle("AskMe!");
-		
+		 
 		startPane = new Pane();
 //		Size for program window (startPane)
 		int paneWidth = 1000;
 		int paneHeight = 700;
 		
-		String backgroundString = "-fx-background-image: url('chalkboard-background.jpg'); "
+		String backgroundString = "-fx-background-image: url('01_free-soft-blurry-background.jpg'); "
 				+ "-fx-background-size: cover; ";
 		startPane.setStyle(backgroundString);
 		
@@ -55,13 +55,14 @@ public class GUI extends Application {
 		titleAskMe.addText(105, 340, "AskMe!", "Impact", 270, Color.WHITE, startPane);
 		
 		ToGUI teacherBtn = new ToGUI();
-		teacherBtn.addButton("Teacher", 300, 150, 130, 370, startPane);
+		teacherBtn.addButton("Teacher", 280, 130, 150, 450, startPane); // a*b width button size, c*d height of location
 		teacherBtn.btn.setStyle("-fx-font-family: Lato;"
 				+ "-fx-font-size: 40;");
 		ToGUI studentBtn = new ToGUI();
-		studentBtn.addButton("Student", 300, 150, 570, 370, startPane);
+		studentBtn.addButton("Student", 280, 130, 570, 450, startPane);
 		studentBtn.btn.setStyle("-fx-font-family: Lato;"
 				+ "-fx-font-size: 40;");
+		
 		
 		
 		teacherPane = new Pane();
