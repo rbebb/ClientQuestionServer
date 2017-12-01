@@ -96,6 +96,38 @@ public class GUI extends Application {
 		enterQuestion.setStyle("-fx-control-inner-background: whitesmoke;");
 		studentPane.getChildren().add(enterQuestion);
 		
+//		Action when teacher clicks start button
+		(teacherBtn.btn).setOnAction(new EventHandler<ActionEvent>()
+		{
+			@Override
+			public void handle (ActionEvent e)
+			{
+				new Thread(()->{QuestionServer.main(null);}).start();
+				
+				isTeacher = true;
+				
+				primaryStage.setScene(teacherScene);
+				primaryStage.setResizable(false);
+				primaryStage.show();
+			}
+		});
+		
+//		Action when student clicks start button
+		(studentBtn.btn).setOnAction(new EventHandler<ActionEvent>()
+		{
+			@Override
+			public void handle (ActionEvent e)
+			{
+				new Thread(()->{StudentClient.main(null);}).start();
+				
+				isStudent = true;
+				
+				primaryStage.setScene(studentScene);
+				primaryStage.setResizable(false);
+				primaryStage.show();
+			}
+		});
+		
 		ToGUI submitBtn = new ToGUI();
 		submitBtn.addButton("Submit", 100, 100, 875, 570, studentPane);
 		submitBtn.btn.setStyle("-fx-font-family: Lato;"
@@ -146,39 +178,6 @@ public class GUI extends Application {
 			public void handle (ActionEvent e)
 			{
 				System.exit(0);
-			}
-		});
-
-		
-//		Action when teacher clicks start button
-		(teacherBtn.btn).setOnAction(new EventHandler<ActionEvent>()
-		{
-			@Override
-			public void handle (ActionEvent e)
-			{
-				new Thread(()->{QuestionServer.main(null);}).start();
-				
-				isTeacher = true;
-				
-				primaryStage.setScene(teacherScene);
-				primaryStage.setResizable(false);
-				primaryStage.show();
-			}
-		});
-		
-//		Action when student clicks start button
-		(studentBtn.btn).setOnAction(new EventHandler<ActionEvent>()
-		{
-			@Override
-			public void handle (ActionEvent e)
-			{
-				new Thread(()->{StudentClient.main(null);}).start();
-				
-				isStudent = true;
-				
-				primaryStage.setScene(studentScene);
-				primaryStage.setResizable(false);
-				primaryStage.show();
 			}
 		});
 		
