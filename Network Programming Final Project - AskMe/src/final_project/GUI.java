@@ -6,8 +6,8 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.ScrollPane;
-import javafx.scene.control.TextArea;
 import javafx.scene.control.ScrollPane.ScrollBarPolicy;
+import javafx.scene.control.TextArea;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -52,7 +52,10 @@ public class GUI extends Application {
 		primaryStage.show();
 		
 		ToGUI titleAskMe = new ToGUI();
-		titleAskMe.addText(105, 340, "AskMe!", "Impact", 270, Color.WHITE, startPane);
+		titleAskMe.addText(105, 340, "Ask", "Impact", 270, Color.CORNFLOWERBLUE, startPane);
+		titleAskMe.addText(500, 340, "Me!", "Impact", 270, Color.GOLD, startPane);
+		
+
 		
 		ToGUI teacherBtn = new ToGUI();
 		teacherBtn.addButton("Teacher", 280, 130, 150, 450, startPane); // a*b width button size, c*d height of location
@@ -180,6 +183,13 @@ public class GUI extends Application {
 			}
 		});
 		
+	}
+
+	private void setColor(Color color) {
+		// TODO Auto-generated method stub
+		
+//		color = new Color.rgb(107, 106, 104);
+//		titleAskMe.setTextFill(Color.rgb(107, 106, 104));
 	}
 
 	public static void addQuestionToTeacherGUI(String newQuestion) {
