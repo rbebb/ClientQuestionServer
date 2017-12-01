@@ -52,7 +52,7 @@ public class GUI extends Application {
 		primaryStage.show();
 		
 		ToGUI titleAskMe = new ToGUI();
-		titleAskMe.addText(180, 250, "AskMe!", "Chalkboard", 200, Color.WHITE, startPane);
+		titleAskMe.addText(105, 340, "AskMe!", "Impact", 270, Color.WHITE, startPane);
 		
 		ToGUI teacherBtn = new ToGUI();
 		teacherBtn.addButton("Teacher", 300, 150, 130, 370, startPane);
