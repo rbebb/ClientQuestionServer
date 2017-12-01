@@ -5,12 +5,9 @@ package final_project;
 
 import java.io.DataInputStream;
 import java.io.PrintStream;
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
 import java.io.IOException;
 import java.net.Socket;
 import java.net.UnknownHostException;
-import java.nio.charset.Charset;
 
 public class StudentClient implements Runnable {
 	
@@ -29,13 +26,13 @@ public class StudentClient implements Runnable {
 		//ip of server
 		String ip = "10.200.27.248";
 		
-		BufferedReader question = null;
+//		BufferedReader question = null;
 		
 		try {
 			cSocket = new Socket(ip, portNum);
 			dis = new DataInputStream(cSocket.getInputStream());
 			ps = new PrintStream(cSocket.getOutputStream());
-			question = new BufferedReader(new InputStreamReader(System.in));
+//			question = new BufferedReader(new InputStreamReader(System.in));
 		} catch (UnknownHostException e) {
 			
 		} catch (IOException e) {

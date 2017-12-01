@@ -6,7 +6,7 @@ package final_project;
 import java.io.PrintStream;
 import java.io.IOException;
 import java.net.Socket;
-import java.util.ArrayList;
+import java.util.HashSet;
 import java.net.ServerSocket;
 
 //Our central hub of questions
@@ -21,7 +21,7 @@ public class QuestionServer {
 	private static final int maxNumStudents = 25;
 	private static final clientThread[] threads = new clientThread[maxNumStudents];
 	//data structure for stored questions
-	static ArrayList<String> questions = new ArrayList<> ();
+	static HashSet<String> questions = new HashSet<>();
 	
 	public static void main(String args[]) {
 		//default port number

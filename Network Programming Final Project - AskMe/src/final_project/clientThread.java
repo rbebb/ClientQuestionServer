@@ -19,7 +19,6 @@ import java.util.HashSet;
 //used as a framework basis for this server
 
 class clientThread extends Thread {
-	private String student = null;
 	private DataInputStream dis = null;
 	private PrintStream ps = null;
 	private Socket cSocket = null;
@@ -76,18 +75,22 @@ class clientThread extends Thread {
 				String question = dis.readLine();
 				question = ProfanityFilter.filterQuestion(question, filter);
 //				System.out.println(question);
-				for (int i = 0; i < maxNumStudents; i++){
-					if (threads[i] != null) 
-					{
-			        		threads[i].ps.println(question);
+				if (!QuestionServer.questions.contains(question.toLowerCase()))	
+				{
+					for (int i = 0; i < maxNumStudents; i++){
+						if (threads[i] != null) 
+						{
+							threads[i].ps.println(question);
+						}
 					}
 			    }
-				QuestionServer.questions.add(question);
 				
-				if (GUI.isTeacher)
+				if (GUI.isTeacher && !QuestionServer.questions.contains(question.toLowerCase()))
 				{
 					GUI.addQuestionToTeacherGUI(question);
 				}
+				
+				QuestionServer.questions.add(question.toLowerCase());
 
 				
 			} catch (IOException e) {

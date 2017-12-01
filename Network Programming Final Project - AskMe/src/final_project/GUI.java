@@ -16,7 +16,7 @@ public class GUI extends Application {
 	static String questionString = null;
 	static Pane startPane, teacherPane, studentPane, teacherPaneQuestions, studentPaneQuestions;
 	private static int textX = 290;
-	private static int textY = 25;
+	private static int textY = 30;
 	private static int textXX = 30;
 	private static int textYY = 115;
 	static boolean submitBtnClick = false;
@@ -54,7 +54,7 @@ public class GUI extends Application {
 		
 		
 		ToGUI teacherBtn = new ToGUI();
-		teacherBtn.addButton("Teacher", 280, 130, 150, 450, startPane); // a*b width button size, c*d height of location
+		teacherBtn.addButton("Teacher", 280, 130, 150, 450, startPane);
 		teacherBtn.btn.setStyle("-fx-font-family: Lato;"
 				+ "-fx-font-size: 40;");
 		(teacherBtn.btn).setTextFill(Color.CORNFLOWERBLUE);
@@ -187,14 +187,14 @@ public class GUI extends Application {
 
 	public static void addQuestionToTeacherGUI(String newQuestion) {
 		ToGUI chatMessage = new ToGUI();
-		textY = textY+18;
-		Platform.runLater(() -> chatMessage.addText(textX, textY, newQuestion, "Lato", 10, Color.BLACK, teacherPane));
+		textY = textY+30;
+		Platform.runLater(() -> chatMessage.addText(textX, textY, newQuestion, "Lato", 18, Color.BLACK, teacherPane));
 	}
 	
 	public static void addQuestionToStudentGUI(String newQuestion) {
 		ToGUI chatMessage = new ToGUI();
-		textY = textY+18;
-		Platform.runLater(() -> chatMessage.addText(textX, textY, newQuestion, "Lato", 10, Color.BLACK, studentPane));
+		textY = textY+30;
+		Platform.runLater(() -> chatMessage.addText(textX, textY, newQuestion, "Lato", 18, Color.BLACK, studentPane));
 	}
 	
 	public static void addStudentNameToTeacherGUI(String name) {

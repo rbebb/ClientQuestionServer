@@ -2,8 +2,6 @@ package final_project;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.PrintWriter;
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
@@ -15,19 +13,19 @@ public class ProfanityFilter {
 
 	
 		try (
-				Scanner fin = new Scanner(new File("src/explitives"));
+				Scanner fin = new Scanner(new File("src/expletives"));
 				) {
 		
-			HashSet<String> swears = new HashSet<String>(10);
+			HashSet<String> swears = new HashSet<String>();
 
-			while (fin.hasNext()) {
+			while (fin.hasNextLine()) {
 			
-				String temp = fin.next();
+				String temp = fin.nextLine();
 			
 				swears.add(temp);
-			
-				return swears;
 			}
+			return swears;
+			
 		} catch (FileNotFoundException e) {
 			System.out.println("It's not there.");
 		} catch (NoSuchElementException ex) {
@@ -43,7 +41,7 @@ public class ProfanityFilter {
 		String[] words = s.split("\\W+");
 		
 		for (int i = 0; i < words.length; i++) {
-			if (hs.contains(words[i])) {
+			if (hs.contains(words[i].toLowerCase())) {
 				String ph = "";
 				for (int i2 = 0; i2 < words[i].length(); i2++) {
 					ph = ph + "*";
