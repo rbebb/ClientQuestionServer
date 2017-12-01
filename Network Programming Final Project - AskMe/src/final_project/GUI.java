@@ -42,7 +42,7 @@ public class GUI extends Application {
 		int paneWidth = 1000;
 		int paneHeight = 700;
 		
-		String backgroundString = "-fx-background-image: url('chalkboard-background.jpg'); "
+		String backgroundString = "-fx-background-image: url('01_free-soft-blurry-background.jpg'); "
 				+ "-fx-background-size: cover; ";
 		startPane.setStyle(backgroundString);
 		
