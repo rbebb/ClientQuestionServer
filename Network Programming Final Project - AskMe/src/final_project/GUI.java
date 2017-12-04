@@ -39,9 +39,9 @@ public class GUI extends Application {
 		int paneWidth = 1000;
 		int paneHeight = 700;
 		
-		String backgroundString = "-fx-background-image: url('01_free-soft-blurry-background.jpg'); "
+		String backgroundImageString = "-fx-background-image: url('01_free-soft-blurry-background.jpg'); "
 				+ "-fx-background-size: cover; ";
-		startPane.setStyle(backgroundString);
+		startPane.setStyle(backgroundImageString);
 		
 		Scene startScene = new Scene(startPane, paneWidth, paneHeight);
 		primaryStage.setScene(startScene);
@@ -66,11 +66,11 @@ public class GUI extends Application {
 		
 		
 		teacherPane = new Pane();
-		teacherPane.setStyle(backgroundString);
+		teacherPane.setStyle(backgroundImageString);
 		Scene teacherScene = new Scene(teacherPane, paneWidth, paneHeight);
 		
 		studentPane = new Pane();
-		studentPane.setStyle(backgroundString);
+		studentPane.setStyle(backgroundImageString);
 		Scene studentScene = new Scene(studentPane, paneWidth, paneHeight);
 		
 		teacherPaneQuestions = new Pane();
