@@ -11,42 +11,40 @@ import javafx.scene.text.TextAlignment;
 
 /**
  * The class ToGUI
- * COMP1050-05, Spring 2017
- * Due: April 11th, 2017
+ * COMP2100-07, Fall 2017
+ * Due: December 5th, 2017
  * 
  ****************************
  * Description 
  ****************************
  *
- * This program adds an image, a button, or text to a desired pane.
+ * This program adds a button or text to a desired pane.
  * 
- * For example, if a user wants to add an image to the pane, they will specify the image path, 
- * the width of the image, the height of the image, whether or not to maintain the aspect
- * ratio when resizing the image, the x position of the image in the desired pane, the y position 
- * of the image in the desired pane, and the pane to add the image to.
+ * For example, if a user wants to add text to the pane, they will specify the x 
+ * position of the text in the desired pane, the y position of the text in the 
+ * desired pane, what the text will say, the font, the text size, the color of the 
+ * text, and the pane to add the text to.
  *
  ****************************
  * Analysis
  ****************************
  *
- * Inputs: The necessary parameters for an image, button, or text.
+ * Inputs: The necessary parameters for a button or text.
  * 
- * Outputs: The image, button, or text to be displayed to the GUI
+ * Outputs: Button or text to be displayed to the GUI
  *
  ****************************
  * Pseudocode
  ****************************
  *
- * 1. Get the parameters for the image, button, or text to add
+ * 1. Get the parameters for the button or text to add
  * 2. Display the element being added in the GUI
  *
- * @author Ryan Bebb and James Alexander
+ * @author Ryan Bebb
  */
 
 public class ToGUI {
 	
-	private String currentImagePath;
-	private Image currentImage;
 	ImageView currentImageView;
 	Button btn;
 	Text text;
@@ -58,31 +56,6 @@ public class ToGUI {
 	 */
 	public ToGUI() {
 		
-	}
-	
-	/**
-	 * Adds an image to the 
-	 * associated pane
-	 * 
-	 * @param imagePath Path to the image being added
-	 * @param width The desired width of the image
-	 * @param height The desired height of the image
-	 * @param ratio Whether to maintain the aspect ratio
-	 * or not when setting the width and height of the image
-	 * @param x The desired x position in the pane
-	 * @param y The desired y position in the pane
-	 * @param pane The pane to add the image to
-	 */
-	public void addImage(String imagePath, int width, int height, boolean ratio, int x, int y, Pane pane) {
-		currentImagePath = imagePath;
-		currentImage = new Image(currentImagePath);
-		currentImageView = new ImageView(currentImage);
-		currentImageView.setFitWidth(width);
-		currentImageView.setFitHeight(height);
-		currentImageView.setPreserveRatio(ratio);
-		currentImageView.setLayoutX(x);
-		currentImageView.setLayoutY(y);
-		pane.getChildren().add(currentImageView);
 	}
 	
 	/**
